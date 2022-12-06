@@ -12,11 +12,11 @@ Veeam Kasten K10 is available in two main editions, FREE K10 and Enterprise. The
 
 ##  2.	High-Level Architecture Diagram
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%201.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%201.png)
 
 ##  3.	Backup Flow
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%202.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%202.png)
 
 ##  4.	Install Requirements
 
@@ -104,11 +104,11 @@ In order to store the backup of container applications and its storage volume to
 1.	Login to **K10 dashboard** - http://K10RouteName/k10/#/
 2.	Navigate to **Settings** from top of the page > Click **Locations** > Click “**New Profile**”
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%203.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%203.png)
 
 3.	Enter **Profile Name** > Choose Storage Provide - **S3 Compatible** > Enter **S3 Access Key, S3 Secret, Endpoint URL, Region name and bucket Name** > Click **Save** Profile    
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%204.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%204.png)
 
 ##  7.	Create Backup Policy
 
@@ -116,15 +116,15 @@ To project the container application with K10, create a backup policy from K10 d
 1.	Login to K10 dashboard - http://K10RouteName/k10/#/
 2.	Click Backup Policies from Policies wizard 
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%205.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%205.png)
 
 3.	Create New Policy
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%206.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%206.png)
 
     i.  Enter **Name** > **Action Snapshot** > Choose **Backup Frequency** i.e., Daily 10:00 pm 
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%207.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%207.png)
 
     **This will create the snapshot, but snapshots** are not always durable. First, catastrophic storage system failure will destroy your snapshots along with your primary data. Further, in a number of storage systems, a snapshot's lifecycle is tied to the source volume. So, if the volume is deleted, all related snapshots might automatically be garbage collected at the same time. It is therefore highly recommended that you create backups of your application snapshots too.
 
@@ -132,15 +132,15 @@ To project the container application with K10, create a backup policy from K10 d
 
     Choose **Snapshot Retention** > **Enable Backup via Snapshot Exports** > Choose **Export Frequency** “Every daily snapshot” > Choose **Export Location Profile** from the list that you have created before i.e. ibmcos 
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%208.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%208.png)
 
     iii.    Select Applications **By Name** > This will list all namespaces from **SNO** > **Select the namespace** where the   application is deployed in > **All Resources** from Select Application Resources >  **Enable Snapshot Cluster-Scoped Resources & select All Cluster-Scoped Resources**
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%209.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%209.png)
 
     iv.   Select **Location profile for Kanister Action** > This is the same location profile that you have created earlier and click Create Policy
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2010.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2010.png)
 
 ##  8.	Configure Application Consistent Backup
 
@@ -287,7 +287,7 @@ The process of creating the application consistent backup is:
 
 Ideally backup job runs as per the schedule configured in Backup Policy. However, On-demand backup can be taken by clicking on “run once” option from backup policy:
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2011.png)
+![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2011.png)
 
 ##  10.	 Restore Steps
 
@@ -300,27 +300,27 @@ Restore can take a few minutes as this depends on the amount of data captured by
 
     i.  Navigate to **Applications** from Dashboard > Click “**restore**” from the application (namespace) that you want to restore . This will list all the previous restore point available:
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2012.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2012.png)
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2013.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2013.png)
 
     ii. **Choose the restore point** > **Verify** the application under “**Application Name**” > Click **Restore**
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2014.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2014.png)
 
     iii.    If you want to restore to **another namespace**, select the **target namespace** from the **Application Name**  and click **Restore**
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2015.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2015.png)
 
 2.	Restoring Deleted Applications
 
     The process of restoring a deleted application is nearly identical to the above process. The only difference is that, by default, removed applications are not shown on the Applications page. To discover them, you simply need to filter and select Removed.
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2016.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2016.png)
 
     Once the filter is in effect, you will see applications that K10 has previously protected but no longer exist. These can now be restored using the normal restore process.
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2017.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2017.png)
 
 ###  Use Case 3: etcd Backup (OpenShift)
 
@@ -366,7 +366,7 @@ Restore can take a few minutes as this depends on the amount of data captured by
 
     Once the Secret is annotated, use K10 to backup etcd using the new namespace. If the Secret is labeled, as mentioned in one of the previous steps, while creating the policy just that Secret can be included in the backup by adding resource filters like below:
 
-    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2018.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2018.png)
 
 
 
@@ -401,7 +401,7 @@ Restore can take a few minutes as this depends on the amount of data captured by
 
         b.	Perform the restore action on K10 by selecting the target namespace as etcd-restore. The K10 restore action in this step only downloads the backup file from the external storage to the restore node
 
-        ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/8ced3f4163ec6008f75d18a665f8d638341f9f29/images/Figure%2019.png)
+        ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2019.png)
 
     The below steps should be followed to restore the etcd cluster:
 

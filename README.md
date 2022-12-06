@@ -120,11 +120,11 @@ To project the container application with K10, create a backup policy from K10 d
 
 3.	Create New Policy
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%206.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%206.png)
 
     i.  Enter **Name** > **Action Snapshot** > Choose **Backup Frequency** i.e., Daily 10:00 pm 
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%207.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%207.png)
 
     **This will create the snapshot, but snapshots** are not always durable. First, catastrophic storage system failure will destroy your snapshots along with your primary data. Further, in a number of storage systems, a snapshot's lifecycle is tied to the source volume. So, if the volume is deleted, all related snapshots might automatically be garbage collected at the same time. It is therefore highly recommended that you create backups of your application snapshots too.
 
@@ -132,15 +132,15 @@ To project the container application with K10, create a backup policy from K10 d
 
     Choose **Snapshot Retention** > **Enable Backup via Snapshot Exports** > Choose **Export Frequency** “Every daily snapshot” > Choose **Export Location Profile** from the list that you have created before i.e. ibmcos 
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%208.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%208.png)
 
     iii.    Select Applications **By Name** > This will list all namespaces from **SNO** > **Select the namespace** where the   application is deployed in > **All Resources** from Select Application Resources >  **Enable Snapshot Cluster-Scoped Resources & select All Cluster-Scoped Resources**
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%209.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%209.png)
 
     iv.   Select **Location profile for Kanister Action** > This is the same location profile that you have created earlier and click Create Policy
 
-![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2010.png)
+    ![alt text](https://github.com/mdhamat/Veeam-kasten-k10/blob/0ccf50723d644c9ae4830f7f48202d22b241dcf4/images/Figure%2010.png)
 
 ##  8.	Configure Application Consistent Backup
 

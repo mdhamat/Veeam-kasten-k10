@@ -165,46 +165,46 @@ The process of creating the application consistent backup is:
     a.  Create a file postgresql-hooks.yaml with the following contents:
 
     ```
-apiVersion: cr.kanister.io/v1alpha1
-kind: Blueprint
-metadata:
-  name: postgresql-hooks
-  namespace: kasten-io
-actions:
-  backupPrehook:
-    phases:
-    - func: KubeExec
-      name: makePGCheckPoint
-      args:
-        namespace: "{{ .DeploymentConfig.Namespace }}"
-        pod: "{{ index . DeploymentConfig.Pods 0 }}"
-        container: postgresql
-        command:
-        - bash
-        - -o
-        - errexit
-        - -o
-        - pipefail
-        - -c
-        - |
-          psql -c "select pg_start_backup('app_cons');"
-  backupPosthook:
-    phases:
-    - func: KubeExec
-      name: afterPGBackup
-      args:
-        namespace: "{{ . DeploymentConfig.Namespace }}"
-        pod: "{{ index . DeploymentConfig.Pods 0 }}"
-        container: postgresql
-        command:
-        - bash
-        - -o
-        - errexit
-        - -o
-        - pipefail
-        - -c
-        - |
-          psql -c "select pg_stop_backup();"
+	apiVersion: cr.kanister.io/v1alpha1
+	kind: Blueprint
+	metadata:
+	  name: postgresql-hooks
+	  namespace: kasten-io
+	actions:
+	  backupPrehook:
+	    phases:
+	    - func: KubeExec
+	      name: makePGCheckPoint
+	      args:
+		namespace: "{{ .DeploymentConfig.Namespace }}"
+		pod: "{{ index . DeploymentConfig.Pods 0 }}"
+		container: postgresql
+		command:
+		- bash
+		- -o
+		- errexit
+		- -o
+		- pipefail
+		- -c
+		- |
+		  psql -c "select pg_start_backup('app_cons');"
+	  backupPosthook:
+	    phases:
+	    - func: KubeExec
+	      name: afterPGBackup
+	      args:
+		namespace: "{{ . DeploymentConfig.Namespace }}"
+		pod: "{{ index . DeploymentConfig.Pods 0 }}"
+		container: postgresql
+		command:
+		- bash
+		- -o
+		- errexit
+		- -o
+		- pipefail
+		- -c
+		- |
+		  psql -c "select pg_stop_backup();"
     ```
 
     b.  And then apply the file using:

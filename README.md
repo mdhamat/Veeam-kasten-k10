@@ -177,7 +177,7 @@ The process of creating the application consistent backup is:
 	      name: makePGCheckPoint
 	      args:
 		namespace: "{{ .DeploymentConfig.Namespace }}"
-		pod: "{{ index . DeploymentConfig.Pods 0 }}"
+		pod: "{{ index .DeploymentConfig.Pods 0 }}"
 		container: postgresql
 		command:
 		- bash
@@ -193,8 +193,8 @@ The process of creating the application consistent backup is:
 	    - func: KubeExec
 	      name: afterPGBackup
 	      args:
-		namespace: "{{ . DeploymentConfig.Namespace }}"
-		pod: "{{ index . DeploymentConfig.Pods 0 }}"
+		namespace: "{{ .DeploymentConfig.Namespace }}"
+		pod: "{{ index .DeploymentConfig.Pods 0 }}"
 		container: postgresql
 		command:
 		- bash

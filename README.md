@@ -176,35 +176,35 @@ The process of creating the application consistent backup is:
 	    - func: KubeExec
 	      name: makePGCheckPoint
 	      args:
-		namespace: "{{ .DeploymentConfig.Namespace }}"
-		pod: "{{ index .DeploymentConfig.Pods 0 }}"
-		container: postgresql
-		command:
-		- bash
-		- -o
-		- errexit
-		- -o
-		- pipefail
-		- -c
-		- |
-		  psql -c "select pg_start_backup('app_cons');"
+	      namespace: "{{ .DeploymentConfig.Namespace }}"
+	      pod: "{{ index .DeploymentConfig.Pods 0 }}"
+	      container: postgresql
+	      command:
+	      - bash
+	      - -o
+	      - errexit
+	      - -o
+	      - pipefail
+	      - -c
+              - |
+	        psql -c "select pg_start_backup('app_cons');"
 	  backupPosthook:
 	    phases:
 	    - func: KubeExec
 	      name: afterPGBackup
 	      args:
-		namespace: "{{ .DeploymentConfig.Namespace }}"
-		pod: "{{ index .DeploymentConfig.Pods 0 }}"
-		container: postgresql
-		command:
-		- bash
-		- -o
-		- errexit
-		- -o
-		- pipefail
-		- -c
-		- |
-		  psql -c "select pg_stop_backup();"
+	      namespace: "{{ .DeploymentConfig.Namespace }}"
+	      pod: "{{ index .DeploymentConfig.Pods 0 }}"
+	      container: postgresql
+	      command:
+	      - bash
+	      - -o
+	      - errexit
+	      - -o
+	      - pipefail
+	      - -c
+	      - |
+                psql -c "select pg_stop_backup();"
     ```
 
     b.  And then apply the file using:

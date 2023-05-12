@@ -181,13 +181,13 @@ The process of creating the application consistent backup is:
 	      container: postgresql
 	      command:
 	      - bash
-	      - -o
-	      - errexit
-	      - -o
-	      - pipefail
-	      - -c
+              - -o
+              - errexit
+              - -o
+              - pipefail
+              - -c
               - |
-	        psql -c "select pg_start_backup('app_cons');"
+              psql -c "select pg_start_backup('app_cons');"
 	  backupPosthook:
 	    phases:
 	    - func: KubeExec
@@ -198,13 +198,13 @@ The process of creating the application consistent backup is:
 	      container: postgresql
 	      command:
 	      - bash
-	      - -o
-	      - errexit
-	      - -o
-	      - pipefail
-	      - -c
-	      - |
-                psql -c "select pg_stop_backup();"
+              - -o
+              - errexit
+              - -o
+              - pipefail
+              - -c
+              - |
+              psql -c "select pg_stop_backup();"
     ```
 
     b.  And then apply the file using:
